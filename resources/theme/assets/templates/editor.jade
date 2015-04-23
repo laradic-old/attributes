@@ -1,0 +1,30 @@
+include ../mixins
+
+- breakpoint = "md"
+- bp1 = 3
+- bp2 = 9
+- values = values || {};
+
+mixin input-group(id, name, type, maxLen)
+    - if(maxLen){
+    - attributes["maxlength"] = maxLen;
+    - attributes["class"] = "maxLength";
+    - }
+    +form-group(id, name, breakpoint, bp1, bp2)
+        +form-input(id, type, name)&attributes(attributes)
+
+
++form("horizontal", true)
+    +form-title("General", breakpoint, bp1, bp2)
+    +input-group('label', 'Label', 'text', 20)(value=values.label ? values.label:null)
+    +input-group('slug', 'Slug', 'text', 20)(value=values.slug ? values.slug:null)
+    +input-group('description', 'Description', 'text')(value=values.description ? values.description:null)
+    +input-group('enabled', 'Enabled', 'checkbox').switch(value="1", checked=values.enabled ? values.enabled:null)
+
+    +form-title("Field type", breakpoint, bp1, bp2)
+    +input-group("field_type", "Field type", "text")(value=values.field_type ? values.field_type:null)
+
+    +form-actions(breakpoint, bp1, bp2)
+        a(role="button", href="javascript:;", data-action="save").btn.btn-success Save
+        a(role="button", href="javascript:;", data-action="close").btn.btn-warning Close
+        a(role="button", href="javascript:;", data-action="delete", data-toggle="confirmation").btn.btn-danger Delete

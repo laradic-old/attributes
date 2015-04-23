@@ -1,0 +1,28 @@
+{
+    "name": "laradic-admin/attributes",
+    "type": "laradic-extension",
+    "description": "Attributes",
+    "keywords": [
+        "laradic-admin", "attributes", "Attributes"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Robin Radic",
+            "email": "robin@radic.nl",
+            "role": "Package Author/Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "laradic/extensions": "~1.0"
+    },
+    "require-dev": {
+        "laradic/dev": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaradicAdmin\\Attributes\\": "src/"
+        }
+    }
+}
